@@ -7,16 +7,15 @@ import lombok.Data;
 @Data
 public class Prato {
 
-    private static long lastId = 100;
 
-    private Long id;
+    private String nome;
     private Double price;
     private String description;
     private Integer amount;
 
 
-    public Prato(Double price, String description, Integer amount) {
-        this.id = lastId++;
+    public Prato(String nome, Double price, String description, Integer amount) {
+        this.nome = nome;
         this.price = price;
         this.description = description;
         this.amount = amount;

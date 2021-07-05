@@ -6,6 +6,12 @@
 	<artifactId>common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>common</name>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<description>Biblioteca de utilitarios para os projetos do bootcamp</description>
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
@@ -13,18 +19,15 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.12.3</version>
-			<scope>compile</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 			<version>1.18.20</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-json</artifactId>
 		</dependency>
 	</dependencies>
 

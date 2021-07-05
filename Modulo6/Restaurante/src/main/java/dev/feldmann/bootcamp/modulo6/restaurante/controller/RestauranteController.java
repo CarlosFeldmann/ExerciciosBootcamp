@@ -25,36 +25,32 @@ public class RestauranteController {
     public ResponseEntity<?> fazerPedido(
             @NotNull @Min(0) @PathVariable Long id,
             @Valid @RequestBody PedidoForm form) {
-        var mesa = service.findMesaById(id);
-        if (mesa.isEmpty()) {
-            return ResponseEntity.notFound().build();
+
+        boolean success = service.fazerPedido(id, form);
+        if (!success) {
+            return ResponseEntity.badRequest().build();
         }
-        service.fazerPedido(mesa.get(), form);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/mesa/{id}/pedirConta")
     public ResponseEntity<MesaDTO> fecharPedidos(@NotNull @Min(0) @PathVariable Long id) {
-        var findMesa = service.findMesaById(id);
-        if (findMesa.isEmpty()) {
-            return ResponseEntity.notFound().build();
+        if (service.fecharPedido(id)) {
+            var dto = service.getMesaDTO(id);
+            return ResponseEntity.ok(dto.get());
         }
-        var mesa = findMesa.get();
-        var dto = new MesaDTO(mesa.calculateTotalPrice(), mesa.getPedidos());
-        service.fecharPedido(mesa);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.notFound().build();
     }
 
 
     @GetMapping("/mesa/{id}")
     public ResponseEntity<MesaDTO> verPedidos(@NotNull @Min(0) @PathVariable Long id) {
-        var findMesa = service.findMesaById(id);
-        if (findMesa.isEmpty()) {
+        var dto = service.getMesaDTO(id);
+
+        if (dto.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        var mesa = findMesa.get();
-        var dto = new MesaDTO(mesa.calculateTotalPrice(), mesa.getPedidos());
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(dto.get());
     }
 
 

@@ -1,9 +1,10 @@
 package dev.feldmann.bootcamp.common.jsonRepository;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.SneakyThrows;
+import org.springframework.core.GenericTypeResolver;
+import org.springframework.core.ResolvableType;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class JsonRepository<T extends Identifiable> {
     private File file;
     private ObjectMapper mapper;
 
-    private JsonStorage cache = null;
+    private JsonStorage<T> cache = null;
 
     public JsonRepository(ObjectMapper mapper, String filePath) {
         this.file = new File(filePath);
@@ -23,7 +24,7 @@ public class JsonRepository<T extends Identifiable> {
     }
 
 
-    private JsonStorage getCache() throws IOException {
+    private JsonStorage<T> getCache() throws IOException {
         if (cache == null) {
             this.cache = loadFromFile();
         }
@@ -45,7 +46,7 @@ public class JsonRepository<T extends Identifiable> {
     }
 
     public void delete(T entity) throws IOException {
-        if(entity.getId()!=null){
+        if (entity.getId() != null) {
             getCache().getEntities().remove(entity.getId());
         }
     }
@@ -60,37 +61,25 @@ public class JsonRepository<T extends Identifiable> {
     }
 
 
-
-    private JsonStorage loadFromFile() throws IOException {
+    private JsonStorage<T> loadFromFile() throws IOException {
         if (!this.file.exists()) {
-            return new JsonStorage(1L, new HashMap<>());
+            return new JsonStorage<T>(1L, new HashMap<>());
         }
-        return mapper.readValue(file, JsonStorage.class);
+        ResolvableType resolvableType = ResolvableType.forClass(getClass());
+        ResolvableType generic = resolvableType.getGeneric(0);
+
+        Class<T> aClass = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), JsonRepository.class);
+
+        JavaType javaType = mapper.getTypeFactory().constructParametricType(JsonStorage.class, aClass);
+        return mapper.readValue(file, javaType);
     }
 
-    private void saveIntoFile(JsonStorage storage) throws IOException {
+    private void saveIntoFile(JsonStorage<T> storage) throws IOException {
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             file.createNewFile();
         }
         this.mapper.writeValue(file, storage);
-    }
-
-
-    @Getter
-    private class JsonStorage {
-        private Long lastId = 1L;
-        private Map<Long, T> entities;
-
-        public JsonStorage(Long lastId, Map<Long, T> entities) {
-            this.lastId = lastId;
-            this.entities = entities;
-        }
-
-
-        public Long getNewId() {
-            return lastId++;
-        }
     }
 
 
