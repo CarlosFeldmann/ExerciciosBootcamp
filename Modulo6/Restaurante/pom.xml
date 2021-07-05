@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.feldmann.bootcamp.modulo6</groupId>
-	<artifactId>Aula2</artifactId>
+	<artifactId>Restaurante</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Aula2</name>
-	<description>Projeto com exercicios da aula 2 do modulo 5</description>
+	<name>Restaurante</name>
+	<description>Projeto com o projeto de gerenciamento de mesas da Aula 2 Modulo 6</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -28,4 +28,10 @@ Todos exercicios estão no mesmo projeto!
   - [X] [Prática: Calculadora de Calorias](https://drive.google.com/file/d/1aXfeO5XPLcMyhv6X3VVEjH_DStnRskeL/view) [`./Aula3/src/main/java/dev/feldmann/bootcamp/modulo6/aula3/calculadoraDeCalorias`](./Aula3/src/main/java/dev/feldmann/bootcamp/modulo6/aula3/calculadoraDeCalorias)
 - [X] TT
   - [X] [Prática: Star Wars](https://drive.google.com/file/d/1Sc_YH9LnVQGOE3_pb1x0G-iNwauEYQKN/view) [`./Aula3/src/main/java/dev/feldmann/bootcamp/modulo6/aula3/starwars`](./Aula3/src/main/java/dev/feldmann/bootcamp/modulo6/aula3/starwars)
-  - [ ] [Prática Complementar](./) - No momento bugada na plataforma "Você precisa de acesso!"
+  - [ ] [Prática Complementar](./)
+    - [X] Exercício 1/Restaurante [`./Restaurante`](./Restaurante)
+    - [ ] Exercicio 2
+
+# Aula 4 🔵
+- [X] TM
+  - [X] [Prática: Link Tracker](https://drive.google.com/file/d/1smQmAERW-abY6taDmU7acX-53JPKCfEh/view) [`./LinkTracker`](./LinkTracker)
