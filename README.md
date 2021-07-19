@@ -61,8 +61,12 @@ class ProductService{
 ---
 
 ## Modulos
-- 🟢 Modulo 5: Fundamentos de Java + OOP [./Modulo5](./Modulo5)
-- 🔵 Modulo 6: Desenvolvimento web com Spring [./Modulo6](./Modulo6)
+* 🟢 Modulo 5: Fundamentos de Java + OOP [./Modulo5](./Modulo5)
+* 🟢 Modulo 6: Desenvolvimento web com Spring [./Modulo6](./Modulo6)
+* 🟢 Modulo 10: Testing automatizado com junit [./Diplomas](./Diplomas)
+* 🔵 Modulo 13: Introdução a base da dados [./Modulo13](./Modulo13)
+
+
 
 
 
