@@ -1,4 +1,4 @@
-package dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.entity;
+package dev.feldmann.bootcamp.consultorioodontologico.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +17,7 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id_user")
   private Long id;
 
   @Column(nullable = false)

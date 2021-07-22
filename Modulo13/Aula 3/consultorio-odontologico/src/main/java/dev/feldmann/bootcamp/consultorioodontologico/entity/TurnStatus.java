@@ -1,4 +1,4 @@
-package dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.entity;
+package dev.feldmann.bootcamp.consultorioodontologico.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

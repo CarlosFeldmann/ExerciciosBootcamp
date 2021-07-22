@@ -1,14 +1,11 @@
-package dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.entity;
+package dev.feldmann.bootcamp.consultorioodontologico.entity;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,12 +13,12 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "dentists")
-public class Dentist {
+@Table(name = "patients")
+public class Patient {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name ="id_dentist")
+  @Column(name = "id_patient")
   private Long id;
 
   @Column(nullable = false)
@@ -44,11 +41,4 @@ public class Dentist {
 
   @Column(nullable = false)
   private String email;
-
-  @Column(nullable = false)
-  private String codeMp;
-
-  @OneToMany(mappedBy = "dentist")
-  private List<Diary> diary;
-
 }

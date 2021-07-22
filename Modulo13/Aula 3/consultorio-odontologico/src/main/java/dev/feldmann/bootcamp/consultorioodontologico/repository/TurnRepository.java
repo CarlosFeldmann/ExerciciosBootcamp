@@ -1,6 +1,6 @@
-package dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.repository;
+package dev.feldmann.bootcamp.consultorioodontologico.repository;
 
-import dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.entity.Turn;
+import dev.feldmann.bootcamp.consultorioodontologico.entity.Turn;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,6 @@
-package dev.feldmann.bootcamp.consultorioodontologico.consultorioodontologico.entity;
+package dev.feldmann.bootcamp.consultorioodontologico.entity;
 
-import java.time.LocalDateTime;
-import java.util.Collection;
+import java.time.LocalTime;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,10 +26,10 @@ public class Diary {
   private Long id;
 
   @Column(nullable = false)
-  private LocalDateTime startTime;
+  private LocalTime startTime;
 
   @Column(nullable = false)
-  private LocalDateTime endingTime;
+  private LocalTime endingTime;
 
   @ManyToOne()
   @JoinColumn(name = "id_dentist")
